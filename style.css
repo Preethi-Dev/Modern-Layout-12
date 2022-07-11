@@ -1,5 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Mono&display=swap");
+
 /* Resets */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
 /* Fonts */
+@font-face {
+  font-family: "Grosella";
+  src: url(./assets/fonts/Grosella.ttf);
+}
+
 /* Variables */
+:root {
+  --primary: #000000;
+  --secondary: #e56751;
+}
+
 /* Base Styles */
+body {
+  color: var(--primary);
+}
+
+main {
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+main h1 {
+  font-family: "Grosella";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11.5rem;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+main .blog_post p,
+h2,
+a {
+  font-family: "PT Mono";
+  font-style: normal;
+}
+
+.blog_post > p,
+a {
+  font-size: 0.625rem;
+  font-weight: 700;
+}
+
+.text .title > p {
+  font-size: 0.625rem;
+  font-weight: 400;
+}
+
+.title > h2 {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.blog_post {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.blog_post .text .title > * + * {
+  margin-top: 0.5rem;
+}
+
+.blog_post .date {
+  text-align: right;
+}
+
 /* Mobile Styles */
+main {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
+    "title title title title title title"
+    ". small-post small-post small-post small-post ."
+    ".large-post large-post large-post large-post .";
+  justify-items: center;
+  grid-row-gap: 2rem;
+}
+
+main h1 {
+  grid-area: title;
+}
+
+main .small_blog_post {
+  grid-area: small-post;
+}
+
+main .large_blog_post {
+  grid-area: large-post;
+}
+
+main .circle_text {
+  display: none;
+}
+
+/* Tablet and laptop Styles */
+@media screen and (min-width: 600px) {
+  main {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas:
+      ". title title title title title title ."
+      ". small-post small-post . large-post large-post large-post ."
+      ". small-post small-post . large-post large-post large-post .";
+  }
+}
+
+/* Laptop Styles */
+@media screen and (min-width: 1000px) {
+  main {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas:
+      ". title       title title title title . . . . . ."
+      ". .           .     .     .     . small-post small-post . large-post large-post large-post"
+      ". circle-text .     .     .     . small-post small-post . large-post large-post large-post"
+      ". circle-text .     .     .     . . . . . . .";
+    grid-row-gap: 0;
+  }
+
+  main h1 {
+    justify-self: start;
+  }
+
+  main .circle_text {
+    grid-area: circle-text;
+    align-self: center;
+    display: block;
+  }
+
+  main h1 {
+    font-size: 15.5rem;
+  }
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 1200px) {
+  main h1 {
+    font-size: 21.5rem;
+  }
+  main .blog_post {
+    margin-top: -150px;
+  }
+}
