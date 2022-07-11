@@ -59,18 +59,17 @@ a {
   font-style: normal;
 }
 
-.blog_post > p,
+.blog_post p,
 a {
   font-size: 0.625rem;
   font-weight: 700;
 }
 
-.text .title > p {
-  font-size: 0.625rem;
+.blog_post .text .title > p {
   font-weight: 400;
 }
 
-.title > h2 {
+.blog_post .text .title > h2 {
   font-size: 0.875rem;
   font-weight: 400;
 }
@@ -117,26 +116,26 @@ main .circle_text {
   display: none;
 }
 
-/* Tablet and laptop Styles */
+/* Tablet Styles */
 @media screen and (min-width: 600px) {
   main {
     grid-template-columns: repeat(8, 1fr);
     grid-template-areas:
-      ". title title title title title title ."
-      ". small-post small-post . large-post large-post large-post ."
-      ". small-post small-post . large-post large-post large-post .";
+      ". title      title      title title      title      title      ."
+      ". small-post small-post .     large-post large-post large-post ."
+      ". small-post small-post .     large-post large-post large-post .";
   }
 }
 
 /* Laptop Styles */
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 960px) {
   main {
     grid-template-columns: repeat(12, 1fr);
     grid-template-areas:
-      ". title       title title title title . . . . . ."
-      ". .           .     .     .     . small-post small-post . large-post large-post large-post"
-      ". circle-text .     .     .     . small-post small-post . large-post large-post large-post"
-      ". circle-text .     .     .     . . . . . . .";
+      ". title       title title title title .          .          . .          .          ."
+      ". .           .     .     .     .     small-post small-post . large-post large-post large-post"
+      ". circle-text .     .     .     .     small-post small-post . large-post large-post large-post"
+      ". circle-text .     .     .     .     .          .          . .          .           .";
     grid-row-gap: 0;
   }
 
